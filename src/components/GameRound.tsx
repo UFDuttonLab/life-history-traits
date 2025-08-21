@@ -16,11 +16,8 @@ interface GameRoundProps {
 }
 
 export const GameRound = ({ round, totalRounds, players, onRoundComplete }: GameRoundProps) => {
-  const [currentScenario] = useState(() => {
-    // Select scenario based on round number, cycling through all available scenarios
-    const scenarioIndex = (round - 1) % SCENARIOS.length;
-    return SCENARIOS[scenarioIndex];
-  });
+  // Select scenario based on round number, cycling through all available scenarios
+  const currentScenario = SCENARIOS[(round - 1) % SCENARIOS.length];
   
   const [playerActions, setPlayerActions] = useState<Record<string, { action: ActionType; reasoning?: string }>>({});
   const [selectedPlayer, setSelectedPlayer] = useState<string>(players[0]?.id || '');
