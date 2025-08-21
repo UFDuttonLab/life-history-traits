@@ -30,6 +30,14 @@ export const GameRound = ({ round, totalRounds, players, onRoundComplete }: Game
   const currentPlayer = players.find(p => p.id === selectedPlayer);
   const allActionsSubmitted = players.every(p => playerActions[p.id]?.action);
 
+  // Reset state when round number changes
+  useEffect(() => {
+    setPlayerActions({});
+    setSelectedPlayer(players[0]?.id || '');
+    setShowResults(false);
+    setRoundResults(null);
+  }, [round, players]);
+
   // Calculate round results
   const calculateResults = (): Round => {
     const results: Round['results'] = {};
