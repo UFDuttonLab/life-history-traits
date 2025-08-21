@@ -134,7 +134,7 @@ const EcologyGame = () => {
                 <Leaf className="h-8 w-8 text-primary" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-foreground">EcoStrategy Game</h1>
+                <h1 className="text-2xl font-bold text-foreground">Life History Traits Battle Royale</h1>
                 <p className="text-muted-foreground">Learn r/K Selection & CSR Triangle</p>
               </div>
             </div>
