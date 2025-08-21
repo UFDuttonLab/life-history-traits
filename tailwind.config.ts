@@ -52,6 +52,16 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Ecology-specific colors
+				'r-species': 'hsl(var(--r-species))',
+				'k-species': 'hsl(var(--k-species))',
+				'c-species': 'hsl(var(--c-species))',
+				's-species': 'hsl(var(--s-species))',
+				'ruderal': 'hsl(var(--ruderal))',
+				'stable': 'hsl(var(--stable))',
+				'disturbed': 'hsl(var(--disturbed))',
+				'resource-rich': 'hsl(var(--resource-rich))',
+				'stressed': 'hsl(var(--stressed))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
