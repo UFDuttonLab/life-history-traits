@@ -14,7 +14,7 @@ export const GameLobby = ({ onPlayersReady }: GameLobbyProps) => {
       <Card className="bg-gradient-to-br from-card via-card to-muted/30 border shadow-lg">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-            Welcome to EcoStrategy!
+            Welcome to Life History Traits Battle Royale!
           </CardTitle>
           <CardDescription className="text-lg mt-2">
             An educational game exploring ecological strategies and natural selection
