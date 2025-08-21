@@ -15,25 +15,16 @@ const EcologyGame = () => {
     gameId: 'eco-game-' + Date.now(),
     players: [],
     currentRound: 0,
-    totalRounds: 4,
+    totalRounds: 6,
     rounds: [],
     gamePhase: 'waiting'
   });
 
-  // Initialize game with demo players for single-player experience
+  // Initialize game - start at waiting phase for name input
   useEffect(() => {
-    const demoPlayers: Player[] = Array.from({ length: 8 }, (_, i) => ({
-      id: `player-${i + 1}`,
-      name: `Player ${i + 1}`,
-      species: 'r-selected' as SpeciesType, // Will be selected later
-      population: 100,
-      totalScore: 0
-    }));
-    
     setGameState(prev => ({
       ...prev,
-      players: demoPlayers,
-      gamePhase: 'species-selection'
+      gamePhase: 'waiting'
     }));
   }, []);
 
@@ -105,32 +96,31 @@ const EcologyGame = () => {
     });
   };
 
+  const handlePlayersReady = (playerNames: string[]) => {
+    const players: Player[] = playerNames.map((name, i) => ({
+      id: `player-${i + 1}`,
+      name: name || `Player ${i + 1}`,
+      species: 'r-selected' as SpeciesType, // Will be selected later
+      population: 100,
+      totalScore: 0
+    }));
+    
+    setGameState(prev => ({
+      ...prev,
+      players,
+      gamePhase: 'species-selection'
+    }));
+  };
+
   const resetGame = () => {
     setGameState({
       gameId: 'eco-game-' + Date.now(),
       players: [],
       currentRound: 0,
-      totalRounds: 4,
+      totalRounds: 6,
       rounds: [],
       gamePhase: 'waiting'
     });
-    
-    // Re-initialize with demo players
-    setTimeout(() => {
-      const demoPlayers: Player[] = Array.from({ length: 8 }, (_, i) => ({
-        id: `player-${i + 1}`,
-        name: `Player ${i + 1}`,
-        species: 'r-selected' as SpeciesType,
-        population: 100,
-        totalScore: 0
-      }));
-      
-      setGameState(prev => ({
-        ...prev,
-        players: demoPlayers,
-        gamePhase: 'species-selection'
-      }));
-    }, 100);
   };
 
   return (
@@ -170,8 +160,7 @@ const EcologyGame = () => {
       <main className="container mx-auto px-4 py-8">
         {gameState.gamePhase === 'waiting' && (
           <GameLobby 
-            players={gameState.players}
-            onStartGame={startGame}
+            onPlayersReady={handlePlayersReady}
           />
         )}
 

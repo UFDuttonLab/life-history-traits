@@ -1,15 +1,13 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Player } from '@/types/game';
-import { Users, Play, BookOpen, Target } from 'lucide-react';
+import { Users, BookOpen, Target } from 'lucide-react';
+import { PlayerNameInput } from './PlayerNameInput';
 
 interface GameLobbyProps {
-  players: Player[];
-  onStartGame: () => void;
+  onPlayersReady: (playerNames: string[]) => void;
 }
 
-export const GameLobby = ({ players, onStartGame }: GameLobbyProps) => {
+export const GameLobby = ({ onPlayersReady }: GameLobbyProps) => {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       {/* Welcome Card */}
@@ -34,7 +32,7 @@ export const GameLobby = ({ players, onStartGame }: GameLobbyProps) => {
             
             <div className="text-center p-4 bg-muted/50 rounded-lg">
               <Target className="h-8 w-8 mx-auto mb-2 text-primary" />
-              <h3 className="font-semibold mb-1">4 Rounds</h3>
+              <h3 className="font-semibold mb-1">6 Rounds</h3>
               <p className="text-sm text-muted-foreground">Different environmental scenarios</p>
             </div>
             
@@ -87,20 +85,8 @@ export const GameLobby = ({ players, onStartGame }: GameLobbyProps) => {
             </div>
           </div>
 
-          {/* Start Game Button */}
-          <div className="text-center pt-4">
-            <Button 
-              size="lg" 
-              onClick={onStartGame}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3"
-            >
-              <Play className="h-5 w-5 mr-2" />
-              Start Ecological Adventure
-            </Button>
-            <p className="text-sm text-muted-foreground mt-2">
-              Game takes 10-15 minutes to complete
-            </p>
-          </div>
+          {/* Player Name Input */}
+          <PlayerNameInput onPlayersReady={onPlayersReady} />
         </CardContent>
       </Card>
     </div>

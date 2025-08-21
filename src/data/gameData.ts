@@ -137,6 +137,24 @@ export const SCENARIOS: Scenario[] = [
     imagePrompt: 'Empty farmfield with rich dark soil, few scattered plants beginning to colonize, open space',
     advantageousStrategies: ['R-ruderal', 'r-selected'],
     explanation: 'Newly available habitats favor pioneer species that can quickly establish and reproduce.'
+  },
+  {
+    id: 'glacial-retreat',
+    name: 'Glacial Retreat Zone',
+    description: 'Newly exposed rocky terrain after glacial retreat, with extreme conditions, minimal soil, and harsh pioneer environment.',
+    environment: 'resource-poor',
+    imagePrompt: 'Rocky mountain terrain with retreating glacier, sparse hardy plants, extreme conditions, primary succession',
+    advantageousStrategies: ['S-stress-tolerant', 'r-selected'],
+    explanation: 'Primary succession environments favor stress-tolerant pioneers that can establish on bare rock and extreme conditions.'
+  },
+  {
+    id: 'urban-edge',
+    name: 'Urban Development Edge',
+    description: 'Interface between city and natural areas with pollution, habitat fragmentation, variable resources, and frequent human disturbance.',
+    environment: 'variable',
+    imagePrompt: 'Edge habitat between urban development and nature, fragmented landscape, pollution stress, human disturbance',
+    advantageousStrategies: ['R-ruderal', 'S-stress-tolerant'],
+    explanation: 'Urban environments favor adaptable species that can handle pollution, disturbance, and fragmented habitats.'
   }
 ];
 
