@@ -296,6 +296,11 @@ export const GameRound = ({ round, totalRounds, players, onRoundComplete }: Game
                           <Clock className="h-4 w-4 text-muted-foreground" />
                         )}
                       </div>
+                      {hasAction && (
+                        <p className="text-xs font-medium text-primary mt-1">
+                          Selected: {ACTION_DESCRIPTIONS[playerActions[player.id].action].name}
+                        </p>
+                      )}
                       <p className="text-xs text-muted-foreground mt-1">
                         {species?.name} • Pop: {player.population}
                       </p>
