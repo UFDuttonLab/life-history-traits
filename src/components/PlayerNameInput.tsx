@@ -19,7 +19,8 @@ export const PlayerNameInput = ({ onPlayersReady }: PlayerNameInputProps) => {
   };
 
   const handleSubmit = () => {
-    onPlayersReady(playerNames);
+    const filledPlayerNames = playerNames.filter(name => name.trim() !== '');
+    onPlayersReady(filledPlayerNames);
   };
 
   const filledNames = playerNames.filter(name => name.trim() !== '').length;
@@ -33,10 +34,10 @@ export const PlayerNameInput = ({ onPlayersReady }: PlayerNameInputProps) => {
             Player Registration
           </CardTitle>
           <CardDescription>
-            Enter names for all 8 players who will compete in the ecological simulation
+            Enter names for players (1-8) who will compete in the ecological simulation
           </CardDescription>
           <Badge variant="outline" className="mx-auto mt-2">
-            {filledNames}/8 players registered
+            {filledNames} player{filledNames !== 1 ? 's' : ''} registered
           </Badge>
         </CardHeader>
         
@@ -90,7 +91,7 @@ export const PlayerNameInput = ({ onPlayersReady }: PlayerNameInputProps) => {
             
             {filledNames > 0 && filledNames < 8 && (
               <p className="text-sm text-muted-foreground">
-                Remaining slots will be filled with default names
+                You can add up to {8 - filledNames} more player{8 - filledNames !== 1 ? 's' : ''}
               </p>
             )}
           </div>
